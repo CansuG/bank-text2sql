@@ -1,0 +1,43 @@
+[project]
+name = "bank-text2sql"
+version = "0.1.0"
+description = "Natural-language-to-SQL assistant over a synthetic banking database"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "faker>=40.44.0",
+    "fastapi>=0.162.0",
+    "numpy>=2.5.4",
+    "pydantic-settings>=2.16.2",
+    "sqlglot>=30.25.0",
+    "structlog>=26.1.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: core errors, I: import order, B: common bug patterns,
+# UP: modern syntax, SIM: unnecessary complexity
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+warn_unused_ignores = true
+no_implicit_optional = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]

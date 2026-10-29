@@ -22,8 +22,18 @@ retrieves the relevant schema documentation, generates SQL with an LLM, validate
 
 ## Getting started
 
+Requires [uv](https://docs.astral.sh/uv/).
+
 ```bash
-cp .env.example .env   # then fill in your API key
+uv sync                        # install the exact locked environment
+cp .env.example .env           # then fill in your API key
+
+uv run pytest                  # tests
+uv run ruff check .            # lint
+uv run mypy app                # type check
+
+# dev server; --reload-dir keeps the watcher off .venv and caches
+uv run uvicorn app.main:app --reload --reload-dir app
 ```
 
-Setup instructions will be added as Phase 1 progresses.
+API docs: http://127.0.0.1:8000/docs
