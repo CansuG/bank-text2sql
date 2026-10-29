@@ -1,0 +1,43 @@
+# --- Secrets & local config ---
+# Real credentials live only in .env (never committed).
+.env
+.env.*
+!.env.example
+
+# --- Generated data ---
+# The SQLite database is reproducible from scripts/generate_data.py.
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+data/generated/
+
+# --- Retrieval indexes (rebuilt by scripts/build_index.py) ---
+.chroma/
+indexes/
+
+# --- Logs & eval outputs ---
+logs/
+*.log
+evals/results/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Editors & OS ---
+.vscode/
+.idea/
+.DS_Store
