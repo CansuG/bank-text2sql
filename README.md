@@ -28,6 +28,9 @@ Requires [uv](https://docs.astral.sh/uv/).
 uv sync                        # install the exact locked environment
 cp .env.example .env           # then fill in your API key
 
+# synthetic database (~1 min, written to data/generated/bank.db)
+uv run python -m scripts.generate_data
+
 uv run pytest                  # tests
 uv run ruff check .            # lint
 uv run mypy app                # type check
